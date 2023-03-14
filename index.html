@@ -147,7 +147,10 @@
         .then(data => {
           myGameInstance.SendMessage('VkBridge', 'ShowInterstitialResult', JSON.stringify(data));
         })  
-        .catch(error => console.log(error));
+        .catch(error => {
+            console.log(error);
+            myGameInstance.SendMessage('VkBridge', 'AdsFail', JSON.stringify(data));
+        });
     }
 
     function showRewarded(id){
@@ -156,7 +159,10 @@
         .then(data => {
           myGameInstance.SendMessage('VkBridge', 'ShowRewardedResult', JSON.stringify(data));
         })  
-        .catch(error => console.log(error));
+        .catch(error => {
+            console.log(error);
+            myGameInstance.SendMessage('VkBridge', 'AdsFail', JSON.stringify(data));
+        });
     }      
 
     function sendPost(text){
